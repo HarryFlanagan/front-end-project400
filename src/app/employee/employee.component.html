@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="">Employees <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="create">Add Employees</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="grid">
+<ng-container *ngFor="let e of listEmployees">
+<div class=" rounded-lg shadow-xl bg-white p-10">
+    <img
+      src="https://teamgreen.org.in/wp-content/uploads/2019/07/boy-avatar-3.png"
+      alt=""
+      class="rounded-full p-4 h-40 mx-auto"
+      *ngIf="e.isManager == true"
+    />
+    <img
+    src="https://cdn4.iconfinder.com/data/icons/people-of-service/512/People_Services_fast_food_cashier_woman-512.png"
+    alt=""
+    class="rounded-full p-4 h-40 mx-auto"
+    *ngIf="e.isManager == false"
+  />
+    <!--Card Header-->
+    <header class=" text-2xl font-extrabold py-4 px-4 text-center">
+    {{e.firstName}} {{e.lastName}}
+    </header>
+    <div>
+      <p class="text-gray-500 text-center font-semibold">
+        €{{e.hourlyWage}} p/hr
+      </p> <p class="text-gray-500 text-center font-semibold">
+       id: {{e.employeeId}}
+      </p>
+      <p class="text-gray-500 text-center font-semibold">
+        {{e.phone}} | {{e.email}}
+       </p>
+       <p class="text-green-500 text-center font-semibold" *ngIf="e.isManager == true">
+        Manager
+       </p>
+       <p class="text-gray-500 text-center font-semibold" *ngIf="e.isManager == false">
+        Employee
+       </p>
+    </div>
+    <!--Card Footer-->
+    <footer class="text-center py-3 px-8 text-gray-500">
+      <button class="py-2 px-4 mt-5 bg-red-500 rounded-lg text-white font-semibold hover:bg-red-600" (click)="deleteEmployee(e.employeeId)">
+        Delete
+      </button>
+    </footer>
+  </div>
+</ng-container>
+<button type="submit" ng-click="onClickForm()" ng-show="!showForm"> 
+    Next 
+ </button>        
+ <form ng-show="showForm">
+    First Name: <input type="text" ng-model="firstname">
+ </form>  
