@@ -38,9 +38,18 @@
         <div class="col">
                 <div class="card">
                     <div class="card-body">
-                    <li *ngFor="let sp of shiftPosition;"> {{e.firstName}} 
-                        <button type="button" (click)="deleteEmployee(e.employeeId)">  delete  </button>        
-                    </li>
+                    <form>
+
+                        <div class="form-group">
+                            <label for="employee">Select an employee to add to rota</label>
+                            <select class="form-control" #employee id="employee">
+                                <option *ngFor="let e of listEmployees;" value="{{e.employeeId}}">{{e.firstName}}</option>
+                            </select>
+                          </div>
+                       <button  type="submit" 
+                       (click)="submitEmployee(employee.value)">Submit</button>
+                    </form>
+                     <li *ngFor="let ss of listScheduledShift;"> {{ss.employee.firstName}} </li> 
                     
               </div>
             </div>

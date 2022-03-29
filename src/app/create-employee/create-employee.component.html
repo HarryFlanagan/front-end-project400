@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand">
+      <img src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-line/254000/168-512.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    </a>
+    <a class="navbar-brand">WorkWeek</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="">Employees <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="create">Add Employees</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+<div class="font-sans antialiased bg-grey-lightest">
+    <div class="w-full bg-grey-lightest" style="padding-top: 4rem;">
+      <div class="container mx-auto py-8">
+        <div class="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
+              <div class="py-4 px-8 text-black text-xl border-b border-grey-lighter">Register new employee</div>
+              <form class="py-4 px-8">
+                  <div class="flex mb-4 form-group">
+                      <div class="w-1/2 mr-1">
+                          <label class="block text-grey-darker text-sm font-bold mb-2" for="firstName">First Name</label>
+                          <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="firstName" #firstName type="text" placeholder="Your first name">
+                      </div>
+                      <div class="w-1/2 ml-1 form-group">
+                          <label class="block text-grey-darker text-sm font-bold mb-2" for="lastName">Last Name</label>
+                          <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="lastName" #lastName type="text" placeholder="Your last name">
+                      </div>
+                  </div>
+                  <div class="mb-4 form-group">
+                      <label class="block text-grey-darker text-sm font-bold mb-2" for="email">Email Address</label>
+                      <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="email" type="email" #email placeholder="Your email address">
+                  </div>
+                  <div class="mb-4 form-group">
+                      <label class="block text-grey-darker text-sm font-bold mb-2" for="phone">Phone</label>
+                      <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="phone" type="tel" #phone placeholder="Your phone number">
+                      <p class="text-grey text-xs mt-1">At least 10 characters</p>
+                  </div>
+                <div class="mb-4 form-group">
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="dateOfBirth">Date of Birth</label>
+                    <input type="date" class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="dateOfBirth" #dateOfBirth placeholder="Your date of birth">
+                </div>
+                <div class="mb-4 form-group">
+                    <label for="hourlyWage" class="block text-sm font-medium text-gray-700">Hourly Wage</label>
+                    <input type="number" class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="hourlyWage" #hourlyWage placeholder="0.00">
+                </div>
+                <div class="mb-4 form-group">
+                    <label for="isManager" class="block text-sm font-medium text-gray-700">isManager</label>
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="isManager" #isManager type="text" placeholder="false">
+           
+                </div>
+
+                <div class="flex items-center justify-between mt-8">
+                    <button class="bg-blue-500 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full" type="submit" 
+                     (click)="onSubmit(firstName.value, lastName.value, email.value, phone.value, dateOfBirth.value, hourlyWage.value, isManager.value)">
+                        Create
+                    </button>
+            </div>
+        </form>
+          </div>
+      </div>
+    </div>
+  </div>
