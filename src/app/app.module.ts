@@ -9,20 +9,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateRotaComponent } from './create-rota/create-rota.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogScheduledShiftComponent } from './dialog-scheduled-shift/dialog-scheduled-shift.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateEmployeeComponent,
     AllEmployeesComponent,
-    CreateRotaComponent
+    CreateRotaComponent,
+    DialogScheduledShiftComponent
   ],
+  entryComponents: [DialogScheduledShiftComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
