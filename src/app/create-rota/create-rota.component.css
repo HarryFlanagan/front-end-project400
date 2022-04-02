@@ -1,0 +1,16 @@
+.card-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    border-radius: 50%;
+    float: right;
+}
+.list-group-flush{
+    border-radius: 8px;
+    margin-bottom: 2%;
+}
+.container-fluid{
+    background-image: url("https://s00189591.s3.eu-west-1.amazonaws.com/Scooter.jpg");
+}
