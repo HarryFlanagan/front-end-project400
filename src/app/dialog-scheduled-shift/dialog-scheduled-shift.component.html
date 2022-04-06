@@ -1,12 +1,12 @@
-<h2 mat-dialog-title>Monday Morning</h2>
-<mat-dialog-content>Please select employee</mat-dialog-content>
+<h2 mat-dialog-title>Select Employee</h2>
 <form>
     <div class="form-group">
         <select class="form-control" #employee id="employee">
             <option *ngFor="let e of listEmployees;" value="{{e.employeeId}}">
-                {{e.firstName}}</option>
+                {{e.firstName}} {{e.lastName}} </option>
         </select>
     </div>
-        <a class="btn btn-primary"  (click)="submitEmployee(employee.value)">Submit</a>
+    <br>
+        <a class="btn btn-success" style="float: right;" (click)="submitEmployee(employee.value)">Add</a>
 </form>
 

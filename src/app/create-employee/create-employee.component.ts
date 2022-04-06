@@ -44,7 +44,7 @@ export class CreateEmployeeComponent implements OnInit {
   constructor(private employeeService: EmployeeService) { }
 
   onSubmit(firstName: string ,lastName: string ,email: string, phone: string ,dateOfBirth: Date, hourlyWage: number, isManager: boolean){
-    this.employee = {
+    this.newEmployee = {
         firstName: firstName,
         lastName: lastName,
         email: email,

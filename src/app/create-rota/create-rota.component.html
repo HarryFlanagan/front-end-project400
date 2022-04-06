@@ -7,316 +7,331 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="">Employees <span class="sr-only">(current)</span></a>
+                <a class="nav-link active" href="">Rota</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="create">Add Employees</a>
+            <li class="nav-item">
+                <a class="nav-link" href="employees">Employees</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="employees">Register New Employee</a>
             </li>
         </ul>
     </div>
 </nav>
-
 <body>
-    <div class="container-fluid "
-        style="border-style: solid;border-color: red; border-width: 1px; background-color: #7b828a; padding-bottom: 20px;">
+    <div class="container-fluid" style="padding-bottom: 20px;">
+        <br>
         <!-- Monday -->
         <div class="row">
             <!--Monday Morning-->
             <div class="col-md">
-                <div class="card">
+                <div class="card text-white bg-dark">
                     <div class="card-header">Monday Morning</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay1;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
-                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)" style="float: right;">X</a> </li>
-                        </ul>              
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                        </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(1)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(1)">Add Employee</a>
                 </div>
             </div>
             <!--Monday Day-->
             <div class="col-md">
-                <div class="card">
+                <div class="card text-white bg-dark">
                     <div class="card-header">Monday Day</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush"  *ngFor="let ss of listScheduledShiftOnADay2;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} 
-                            <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)" style="float: right;">X</a> </li>
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay2;">
+                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(2)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(2)">Add Employee</a>
                 </div>
             </div>
             <!--Monday Night-->
             <div class="col-md">
-                <div class="card">
+                <div class="card text-white bg-dark">
                     <div class="card-header">Monday Night</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay3;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
-                            <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)" style="float: right;">X</a> </li>
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(3)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(3)">Add Employee</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- Tuesday -->
+        <div class="row">
+            <!--Tuesday Morning-->
+            <div class="col-md">
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Tuesday Morning</div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay4;">
+                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                        </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(4)">+</a>
+                    </div>
+
+                </div>
+            </div>
+            <!--Tuesday Day-->
+            <div class="col-md">
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Tuesday Day</div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay5;">
+                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                        </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(5)">+</a>
+                    </div>
+                </div>
+            </div>
+            <!--Tuesday Night-->
+            <div class="col-md">
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Tuesday Night</div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay6;">
+                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                        </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(6)">+</a>
+                    </div>
                 </div>
             </div>
         </div>
         <br>
         <div class="row">
-            <!--Monday Morning-->
+            <!--Wednesday Morning-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Morning</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Wednesday Morning</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay7;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(7)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(4)">Add Employee</a>
                 </div>
             </div>
-            <!--Monday Day-->
+            <!--Wednesday Day-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Day</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Wednesday Day</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay8;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(8)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(5)">Add Employee</a>
                 </div>
             </div>
-            <!--Monday Day-->
+            <!--Wednesday Night-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Night</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Wednesday Night</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay9;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(9)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(6)">Add Employee</a>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <!--Monday Morning-->
-            <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Morning</div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
-                        </ul>
-                    </div>
-                    <a class="btn btn-primary" (click)="openModal(7)">Add Employee</a>
-                </div>
-            </div>
-            <!--Monday Day-->
-            <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Day</div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
-                        </ul>
-                    </div>
-                    <a class="btn btn-primary" (click)="openModal(8)">Add Employee</a>
-                </div>
-            </div>
-            <!--Monday Day-->
-            <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Night</div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
-                        </ul>
-                    </div>
-                    <a class="btn btn-primary" (click)="openModal(9)">Add Employee</a>
                 </div>
             </div>
         </div>
         <br>
         <div class="row">
-            <!--Monday Morning-->
+            <!--Thursday Morning-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Morning</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header ">Thursday Morning</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay10;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(10)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(10)">Add Employee</a>
                 </div>
             </div>
-            <!--Monday Day-->
+            <!--Thursday Day-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Day</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Thursday Day</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay11;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(11)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(11)">Add Employee</a>
                 </div>
             </div>
-            <!--Monday Day-->
+            <!--Thursday Day-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Night</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Thursday Night</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay12;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(12)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(12)">Add Employee</a>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <!--Monday Morning-->
-            <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Morning</div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
-                        </ul>
-                    </div>
-                    <a class="btn btn-primary" (click)="openModal(13)">Add Employee</a>
-                </div>
-            </div>
-            <!--Monday Day-->
-            <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Day</div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
-                        </ul>
-                    </div>
-                    <a class="btn btn-primary" (click)="openModal(14)">Add Employee</a>
-                </div>
-            </div>
-            <!--Monday Day-->
-            <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Night</div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
-                        </ul>
-                    </div>
-                    <a class="btn btn-primary" (click)="openModal(15)">Add Employee</a>
                 </div>
             </div>
         </div>
         <br>
         <div class="row">
-            <!--Monday Morning-->
+            <!--Friday Morning-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Morning</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Friday Morning</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay13;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(13)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(16)">Add Employee</a>
                 </div>
             </div>
-            <!--Monday Day-->
+            <!--Friday Day-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Day</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Friday Day</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay14;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(14)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(17)">Add Employee</a>
                 </div>
             </div>
-            <!--Monday Day-->
+            <!--Friday Night-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Night</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Friday Night</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay15;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(15)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(18)">Add Employee</a>
                 </div>
             </div>
         </div>
         <br>
         <div class="row">
-            <!--Monday Morning-->
+            <!--Saturday Morning-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Morning</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Saturday Morning</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay16;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(16)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(19)">Add Employee</a>
                 </div>
             </div>
-            <!--Monday Day-->
+            <!--Saturday Day-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Day</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Saturday Day</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay17;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(17)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(20)">Add Employee</a>
                 </div>
             </div>
-            <!--Monday Day-->
+            <!--Saturday Night-->
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">Monday Night</div>
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Saturday Night</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShift;">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay18;">
                             <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
                         </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(18)">+</a>
                     </div>
-                    <a class="btn btn-primary" (click)="openModal(21)">Add Employee</a>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Monday Morning Shift</h4>
-                    <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
-                            aria-hidden="true">&times;</span></button>
+        <br>
+        <div class="row">
+            <!--Sunday Morning-->
+            <div class="col-md">
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Sunday Morning</div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay19;">
+                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                        </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(19)">+</a>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="employee">Select an employee to add to rota</label>
-                            <select class="form-control" #employee id="employee">
-                                <option *ngFor="let e of listEmployees;" value="{{e.employeeId}}">
-                                    {{e.firstName}}</option>
-                            </select>
-                        </div>
-                    </form>
+            </div>
+            <!--Sunday Day-->
+            <div class="col-md">
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Sunday Day</div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay20;">
+                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                        </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(20)">+</a>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" (click)="submitEmployee(employee.value, 1)">Submit</button>
+            </div>
+            <!--Sunday Night-->
+            <div class="col-md">
+                <div class="card text-white bg-dark">
+                    <div class="card-header text-white bg-dark">Sunday Night</div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay21;">
+                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                        </ul>
+                        <br>
+                        <a class="btn btn-success" (click)="openModal(21)">+</a>
+                    </div>
                 </div>
             </div>
         </div>

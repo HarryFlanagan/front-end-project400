@@ -1,4 +1,19 @@
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Create 2 columns and auto-place rows */
+    background-image: url('https://s00189591.s3.eu-west-1.amazonaws.com/Scooter.jpg');
+    background-size: cover;
+}
+.avatar
+{
+      display: block;
+  margin-left: auto;
+  margin-right: auto;
+    padding: 2%;
+    max-width: 200px;
+  max-height: 200px;
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
 }
