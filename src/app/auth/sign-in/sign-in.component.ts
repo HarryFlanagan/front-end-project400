@@ -38,6 +38,7 @@ export class SignInComponent implements OnInit {
         onSuccess: (result) => {
           this.router.navigate([""])
           localStorage.setItem('userName', userData.Username)
+          localStorage.setItem('isLoggedIn', 'true')
         },
         onFailure: (err) => {
           alert(err.message || JSON.stringify(err));

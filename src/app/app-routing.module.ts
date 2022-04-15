@@ -5,11 +5,12 @@ import { AllEmployeesComponent } from './all-employees/all-employees.component';
 import { CreateRotaComponent } from './create-rota/create-rota.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { AuthService } from './auth/auth.service';
+import {LoginGuard} from '../app/login.guard'
 
 const routes: Routes = [
-    { path: '', component: CreateRotaComponent},
-    { path: 'employees', component: AllEmployeesComponent},
-    { path: 'create', component: CreateEmployeeComponent},
+    { path: '', component: CreateRotaComponent,canActivate: [LoginGuard]},
+    { path: 'employees', component: AllEmployeesComponent, canActivate: [LoginGuard]},
+    { path: 'create', component: CreateEmployeeComponent,canActivate: [LoginGuard]},
     { path: 'signin', component: SignInComponent}
 ];
 

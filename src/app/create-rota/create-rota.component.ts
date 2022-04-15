@@ -164,6 +164,7 @@ export class CreateRotaComponent implements OnInit {
         let userPool = new CognitoUserPool(poolData);
         let cognitoUser = userPool.getCurrentUser();
         cognitoUser?.signOut();
+        localStorage.setItem('isLoggedIn', 'false')
         this.router.navigate(["signin"])
       }
 }
