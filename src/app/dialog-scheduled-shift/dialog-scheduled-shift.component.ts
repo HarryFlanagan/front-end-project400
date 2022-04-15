@@ -7,6 +7,7 @@ import { IShift } from 'src/models/IShift';
 import { EmployeeService } from 'src/services/employee.service';
 import { ScheduledShiftService } from 'src/services/scheduled-shift.service';
 import { ShiftService } from 'src/services/shift.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-scheduled-shift',
@@ -23,7 +24,7 @@ export class DialogScheduledShiftComponent implements OnInit {
     selectedEmployee: any;
     display = "none";
 
-  constructor(private employeeService: EmployeeService, private shiftService: ShiftService, private scheduledShiftService: ScheduledShiftService,  @Inject(MAT_DIALOG_DATA) public shiftIdInject) { }
+  constructor(private employeeService: EmployeeService, private shiftService: ShiftService, private scheduledShiftService: ScheduledShiftService,  @Inject(MAT_DIALOG_DATA) public shiftIdInject, private router: Router) { }
 
   @Input() employee: IEmployee;
   @Input() shift: IShift;
@@ -56,6 +57,7 @@ export class DialogScheduledShiftComponent implements OnInit {
                     this.scheduledShiftService.addEmployeeToScheduledShift(this.newScheduledShift)
                 });
         });
+        setTimeout(location.reload.bind(location), 100);   
 }
 
 }

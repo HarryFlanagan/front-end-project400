@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand">
+        <img src="https://s00189591.s3.eu-west-1.amazonaws.com/pencil.png" width="30"
+            height="30" class="d-inline-block align-top" alt="">
+    </a>
+    <a class="navbar-brand">WorkWeek</a>
+</nav>
+    <body>
+    <div class="font-sans antialiased bg-grey-lightest">
+        <div class="w-full bg-grey-lightest" style="padding-top: 4rem;">
+          <div class="container mx-auto py-8">
+            <div class="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
+                  <div class="py-4 px-8 text-black text-xl border-b border-grey-lighter">Sign In</div>
+                  <form class="py-4 px-8" (submit)="onSignIn(signInForm)" #signInForm="ngForm">
+                      <div class="mb-4 form-group">
+                          <label class="block text-grey-darker text-sm font-bold mb-2" for="email">Email Address</label>
+                          <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" name="email" ngModel type="email" #emailInput="ngModel" [(ngModel)]="email_address" email placeholder="Enter Username" required>
+                      </div>
+                      <div class="mb-4 form-group">
+                          <label class="block text-grey-darker text-sm font-bold mb-2" for="password" >Password</label>
+                          <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" [(ngModel)]="password" ngModel type="password" minlength="8" #passwordInput="ngModel" required name="password" placeholder="Enter Password">
+                      </div>   
+                    <div class="flex items-center justify-between mt-8">
+                        <button class="bg-blue-500 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full" type="submit" 
+                         >
+                           Sign In
+                        </button>
+                </div>
+            </form>
+              </div>
+          </div>
+        </div>
+      </div>

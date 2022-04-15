@@ -17,6 +17,12 @@
             </li>
         </ul>
     </div>
+    <h3 style="color: white;">{{userEmail}}</h3>
+    <div class="button-section" style="margin-right: 2%; margin-left: 2%;">
+        <a  id="loginBtn" class="btn btn-primary" (click)="onLogout()">
+         Log out
+        </a>
+        </div>
 </nav>
 <body>
     <div class="container-fluid" style="padding-bottom: 20px;">
@@ -29,7 +35,11 @@
                     <div class="card-header">Monday Morning</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay1;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
                                 <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
                                     style="float: right;">X</a>
                             </li>
@@ -45,7 +55,11 @@
                     <div class="card-header">Monday Day</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay2;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
                                 <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
                                     style="float: right;">X</a>
                             </li>
@@ -61,7 +75,11 @@
                     <div class="card-header">Monday Night</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay3;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
                                 <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
                                     style="float: right;">X</a>
                             </li>
@@ -81,7 +99,11 @@
                     <div class="card-header">Tuesday Morning</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay4;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
                                 <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
                                     style="float: right;">X</a>
                             </li>
@@ -98,7 +120,11 @@
                     <div class="card-header">Tuesday Day</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay5;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
                                 <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
                                     style="float: right;">X</a>
                             </li>
@@ -114,7 +140,11 @@
                     <div class="card-header">Tuesday Night</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay6;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
                                 <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
                                     style="float: right;">X</a>
                             </li>
@@ -133,7 +163,14 @@
                     <div class="card-header">Wednesday Morning</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay7;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(7)">+</a>
@@ -146,7 +183,14 @@
                     <div class="card-header">Wednesday Day</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay8;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(8)">+</a>
@@ -159,7 +203,14 @@
                     <div class="card-header">Wednesday Night</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay9;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(9)">+</a>
@@ -175,7 +226,14 @@
                     <div class="card-header ">Thursday Morning</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay10;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(10)">+</a>
@@ -188,7 +246,14 @@
                     <div class="card-header">Thursday Day</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay11;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(11)">+</a>
@@ -201,7 +266,14 @@
                     <div class="card-header">Thursday Night</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay12;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(12)">+</a>
@@ -217,7 +289,14 @@
                     <div class="card-header">Friday Morning</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay13;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(13)">+</a>
@@ -230,7 +309,14 @@
                     <div class="card-header">Friday Day</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay14;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(14)">+</a>
@@ -243,7 +329,14 @@
                     <div class="card-header">Friday Night</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay15;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(15)">+</a>
@@ -259,7 +352,14 @@
                     <div class="card-header">Saturday Morning</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay16;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(16)">+</a>
@@ -272,7 +372,14 @@
                     <div class="card-header">Saturday Day</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay17;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(17)">+</a>
@@ -285,7 +392,14 @@
                     <div class="card-header">Saturday Night</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay18;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(18)">+</a>
@@ -301,7 +415,14 @@
                     <div class="card-header">Sunday Morning</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay19;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(19)">+</a>
@@ -314,7 +435,14 @@
                     <div class="card-header">Sunday Day</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay20;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(20)">+</a>
@@ -327,7 +455,14 @@
                     <div class="card-header text-white bg-dark">Sunday Night</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush" *ngFor="let ss of listScheduledShiftOnADay21;">
-                            <li class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}} </li>
+                            <li *ngIf="ss.employee.email == userEmail" class="list-group-item" style="background-color: yellow;">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
+                            <li *ngIf="ss.employee.email != userEmail" class="list-group-item">{{ss.employee.firstName}} {{ss.employee.lastName}}
+                                <a class="btn btn-danger" (click)="removeEmployee(ss.scheduledShiftId)"
+                                    style="float: right;">X</a>
+                            </li>
                         </ul>
                         <br>
                         <a class="btn btn-success" (click)="openModal(21)">+</a>

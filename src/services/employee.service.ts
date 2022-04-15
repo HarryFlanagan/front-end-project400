@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-
 import{ IEmployee } from '../models/IEmployee';
 
 
@@ -19,10 +18,12 @@ constructor(private httpClient: HttpClient){}
 getEmployees(): Observable<any>{
 return this.httpClient.get(this.springBootAPI)
 }
+
 getEmployeeById(id: number): Observable<any>{
     let springBootAPI: string = this.springBootAPI + '/' + id;
     return this.httpClient.get(springBootAPI)
 }
+
 createEmployee(employee){
     console.log(employee)
     this.httpClient.post(this.springBootAPI, employee).subscribe(

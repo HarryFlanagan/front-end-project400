@@ -17,6 +17,12 @@
             </li>
         </ul>
     </div>
+    <h3 style="color: white;">{{userEmail}}</h3>
+    <div class="button-section" style="margin-right: 2%; margin-left: 2%;">
+        <a  id="loginBtn" class="btn btn-primary" (click)="onLogout()">
+         Log out
+        </a>
+        </div>
 </nav>
   <body>
     <div class="grid">
@@ -25,7 +31,6 @@
         <br>
         <!-- Employee Card -->
         <div class="row">
-            <!--Monday Morning-->
             <div class="col-md">
                 <div class="card text-white bg-dark">
                     <div class="card-header">{{e.firstName}} {{e.lastName}}</div>
@@ -44,6 +49,12 @@
                            <p class=" card-text text-white-500 text-center" *ngIf="e.isManager == false">
                             Employee
                            </p>
+                                               <!--Card Footer-->
+    <footer class="text-center py-3 px-8 text-gray-500">
+        <button class="py-2 px-4 mt-5 bg-red-500 rounded-lg text-white font-semibold hover:bg-red-600" (click)="deleteEmployee(e.employeeId)">
+          Delete
+        </button>
+      </footer>
                     </div>
                 </div>
             </div>

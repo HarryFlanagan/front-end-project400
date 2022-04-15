@@ -17,6 +17,12 @@
             </li>
         </ul>
     </div>
+    <h3 style="color: white;">{{userEmail}}</h3>
+    <div class="button-section" style="margin-right: 2%; margin-left: 2%;">
+        <a  id="loginBtn" class="btn btn-primary" (click)="onLogout()">
+         Log out
+        </a>
+        </div>
 </nav>
 <body>
 <div class="font-sans antialiased bg-grey-lightest">
@@ -24,50 +30,48 @@
       <div class="container mx-auto py-8">
         <div class="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
               <div class="py-4 px-8 text-black text-xl border-b border-grey-lighter">Register new employee</div>
-              <form class="py-4 px-8">
-                  <div class="flex mb-4 form-group">
-                      <div class="w-1/2 mr-1">
-                          <label class="block text-grey-darker text-sm font-bold mb-2" for="firstName">First Name</label>
-                          <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="firstName" #firstName type="text" placeholder="Your first name">
-                      </div>
-                      <div class="w-1/2 ml-1 form-group">
-                          <label class="block text-grey-darker text-sm font-bold mb-2" for="lastName">Last Name</label>
-                          <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="lastName" #lastName type="text" placeholder="Your last name">
-                      </div>
-                  </div>
-                  <div class="mb-4 form-group">
-                      <label class="block text-grey-darker text-sm font-bold mb-2" for="email">Email Address</label>
-                      <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="email" type="email" #email placeholder="Your email address">
-                  </div>
-                  <div class="mb-4 form-group">
-                      <label class="block text-grey-darker text-sm font-bold mb-2" for="phone">Phone</label>
-                      <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="phone" type="tel" #phone placeholder="Your phone number">
-                      <p class="text-grey text-xs mt-1">At least 10 characters</p>
-                  </div>
-                <div class="mb-4 form-group">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="dateOfBirth">Date of Birth</label>
-                    <input type="date" class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="dateOfBirth" #dateOfBirth placeholder="Your date of birth">
-                </div>
-                <div class="mb-4 form-group">
-                    <label for="hourlyWage" class="block text-sm font-medium text-gray-700">Hourly Wage</label>
-                    <input type="number" class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" id="hourlyWage" #hourlyWage placeholder="0.00">
-                </div>
-                <div class="mb-4 form-group">
-                    <label for="isManager" class="block text-sm font-medium text-gray-700">isManager</label>
-                    <select class="form-control" #isManager id="isManager">
-                        <option value="true">
-                            True </option>
-                            <option value="false">
-                                False</option>
-                    </select>
-                </div>
-
-                <div class="flex items-center justify-between mt-8">
-                    <button class="bg-blue-500 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full" type="submit" 
-                     (click)="onSubmit(firstName.value, lastName.value, email.value, phone.value, dateOfBirth.value, hourlyWage.value, isManager.value)">
-                        Create
-                    </button>
+        <form class="py-4 px-8" (submit)="onSignup(signupForm)" #signupForm="ngForm">
+            <div class="flex mb-4 form-group">
+            <div class="w-1/2 mr-1">
+                <label class="block text-grey-darker text-sm font-bold mb-2" for="firstName">First Name</label>
+                <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" type="text" ngModel #firstNameInput="ngModel" [(ngModel)]="firstName" placeholder="Enter First Name" name="fname" id="firstName" required>
             </div>
+            <div class="w-1/2 ml-1 form-group">
+                <label class="block text-grey-darker text-sm font-bold mb-2" for="lastName">Last Name</label>
+                <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" type="text" ngModel #firstNameInput="ngModel" [(ngModel)]="lastName" placeholder="Enter Last Name" name="fname" id="firstName" required>
+            </div>    
+            </div>
+            <div class="mb-4 form-group">
+                <label class="block text-grey-darker text-sm font-bold mb-2" for="email">Email Address</label>
+                <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" type="text" ngModel #emailInput="ngModel" [(ngModel)]="email" placeholder="Enter Email" name="email" id="email" required>
+            </div>  
+            <div class="mb-4 form-group">
+                <label class="block text-grey-darker text-sm font-bold mb-2" for="phone">Phone</label>
+                <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" type="tel" ngModel #phoneInput="ngModel" [(ngModel)]="phone" placeholder="Enter Phone Number" name="phone" id="phone" required>
+                <p class="text-grey text-xs mt-1">At least 10 characters</p>
+            </div>   
+            <div class="mb-4 form-group">
+                <label class="block text-grey-darker text-sm font-bold mb-2" for="dateOfBirth">Date of Birth</label>
+                <input type="date" class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" type="date" ngModel #dateOfBirthInput="ngModel" [(ngModel)]="dateOfBirth" name="dateOfBirth" id="dateOfBirth" required>
+            </div>  
+            <div class="mb-4 form-group">
+                <label for="hourlyWage" class="block text-sm font-medium text-gray-700">Hourly Wage</label>
+                <input type="number" class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" type="number" ngModel #hourlyWageInput="ngModel" [(ngModel)]="hourlyWage" name="hourlyWage" id="hourlyWage" required placeholder="0.00">
+            </div>
+            <div class="mb-4 form-group">
+                <label for="isManager" class="block text-sm font-medium text-gray-700">isManager</label>
+                <select class="form-control" ngModel #isManagerInput="ngModel" [(ngModel)]="isManager" name="isManager" id="isManager" required>
+                    <option  [value]="true">
+                        True </option>
+                        <option [value]="false">
+                            False</option>
+                </select>
+            </div>
+            <div class="mb-4 form-group">
+            <label for="psw" class="block text-sm font-medium text-gray-700"><b>Password</b></label>
+            <input type="password" class="appearance-none border rounded w-full py-2 px-3 text-grey-darker form-control" name="password" ngModel minlength="8" #passwordInput="ngModel" [(ngModel)]="password" placeholder="Enter Password" id="psw" required>
+        </div>
+            <button type="submit" class="registerbtn">Register</button>
         </form>
           </div>
       </div>

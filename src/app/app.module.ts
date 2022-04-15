@@ -12,6 +12,7 @@ import { CreateRotaComponent } from './create-rota/create-rota.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogScheduledShiftComponent } from './dialog-scheduled-shift/dialog-scheduled-shift.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { DialogScheduledShiftComponent } from './dialog-scheduled-shift/dialog-s
     CreateEmployeeComponent,
     AllEmployeesComponent,
     CreateRotaComponent,
-    DialogScheduledShiftComponent
+    DialogScheduledShiftComponent,
+    SignInComponent,
+
   ],
   entryComponents: [DialogScheduledShiftComponent],
   imports: [

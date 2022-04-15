@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/services/employee.service';
+import { CognitoUserPool,CognitoUserAttribute } from 'amazon-cognito-identity-js';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-all-employees',
@@ -12,13 +16,11 @@ export class AllEmployeesComponent {
     title = 'workweek'
     listEmployees: any;
     message: any;
+    userEmail;
 
-    // public employees = [
-    //     {"id": 1, "firstName": "Harry", "lastName": "Flanagan"},
-    //     {"id": 2, "firstName": "James", "lastName": "Flanagan"}
-    // ]
-    constructor(private employeeService: EmployeeService){}
+    constructor(private employeeService: EmployeeService,  private router: Router ){}
     ngOnInit(){
+     this.userEmail = localStorage.getItem("userName")
       this.employeeService.getEmployees().subscribe(data =>{this.listEmployees = data});
   }
   deleteEmployee(id:number){
@@ -28,5 +30,15 @@ export class AllEmployeesComponent {
         });
         window.location.reload();
     } 
+    onLogout(): void {
+        let poolData = {
+          UserPoolId: environment.cognitoUserPoolId,
+          ClientId: environment.cognitoAppClientId
+        };
+        let userPool = new CognitoUserPool(poolData);
+        let cognitoUser = userPool.getCurrentUser();
+        cognitoUser?.signOut();
+        this.router.navigate(["signin"])
+      }
 
 }

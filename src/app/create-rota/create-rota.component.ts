@@ -9,6 +9,9 @@ import { ShiftService } from 'src/services/shift.service';
 import { ScheduledShiftService } from 'src/services/scheduled-shift.service';
 import * as _ from 'lodash';
 import { DialogScheduledShiftComponent } from '../dialog-scheduled-shift/dialog-scheduled-shift.component';
+import { Router } from '@angular/router';
+import { CognitoUserPool } from 'amazon-cognito-identity-js';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-create-rota',
@@ -22,9 +25,10 @@ export class CreateRotaComponent implements OnInit {
     listScheduledShift: any;
     message: string;
     selectedEmployee: any;
+    userEmail: any;
     display = "none";
 
-    constructor(private employeeService: EmployeeService, private shiftService: ShiftService, private scheduledShiftService: ScheduledShiftService, public dialog: MatDialog) { }
+    constructor(private employeeService: EmployeeService, private shiftService: ShiftService, private scheduledShiftService: ScheduledShiftService, public dialog: MatDialog,private router: Router) { }
 
     @Input() employee: IEmployee;
     @Input() shift: IShift;
@@ -83,6 +87,7 @@ export class CreateRotaComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.userEmail = localStorage.getItem("userName")
         this.employeeService.getEmployees().subscribe(data => { this.listEmployees = data });
         this.scheduledShiftService.getScheduledShifts().subscribe(data => { this.listScheduledShift = data });
         this.scheduledShiftService.getScheduledShiftsByShiftId(1).subscribe(data => {this.listScheduledShiftOnADay1 = data });
@@ -150,4 +155,15 @@ export class CreateRotaComponent implements OnInit {
     onCloseHandled(){
         console.log("temp")
     }
+
+    onLogout(): void {
+        let poolData = {
+          UserPoolId: environment.cognitoUserPoolId,
+          ClientId: environment.cognitoAppClientId
+        };
+        let userPool = new CognitoUserPool(poolData);
+        let cognitoUser = userPool.getCurrentUser();
+        cognitoUser?.signOut();
+        this.router.navigate(["signin"])
+      }
 }

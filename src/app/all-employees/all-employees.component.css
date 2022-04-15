@@ -1,8 +1,11 @@
-.grid {
+.grid{
     display: grid;
     grid-template-columns: 1fr 1fr; /* Create 2 columns and auto-place rows */
     background-image: url('https://s00189591.s3.eu-west-1.amazonaws.com/Scooter.jpg');
     background-size: cover;
+}
+body{
+    background-image: url('https://s00189591.s3.eu-west-1.amazonaws.com/Scooter.jpg');
 }
 .avatar
 {
