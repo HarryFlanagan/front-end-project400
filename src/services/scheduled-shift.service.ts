@@ -8,7 +8,7 @@ import { IScheduledShift } from 'src/models/IScheduledShift';
 })
 export class ScheduledShiftService {
 
-    private springBootAPI = 'http://localhost:8080/api/v1/scheduledShift'
+    private springBootAPI = 'http://localhost:5000/api/v1/scheduledShift'
 
     constructor(private httpClient: HttpClient) { }
     getScheduledShifts(): Observable<any> {

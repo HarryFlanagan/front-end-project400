@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class ShiftService {
 
-private springBootAPI = 'http://localhost:8080/api/v1/shift'
+private springBootAPI = 'http://localhost:5000/api/v1/shift'
 
   constructor(private httpClient: HttpClient) { }
 

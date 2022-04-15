@@ -10,7 +10,7 @@ import{ IEmployee } from '../models/IEmployee';
 })
 export class EmployeeService {
 
-private springBootAPI = 'http://localhost:8080/api/v1/employee'
+private springBootAPI = 'http://localhost:5000/api/v1/employee'
 //private springBootAPI = 'http://springappproject400-env.eba-ssmatx2f.eu-west-1.elasticbeanstalk.com/api/v1/employee'
 
 constructor(private httpClient: HttpClient){}

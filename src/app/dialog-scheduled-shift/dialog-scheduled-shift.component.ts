@@ -57,7 +57,7 @@ export class DialogScheduledShiftComponent implements OnInit {
                     this.scheduledShiftService.addEmployeeToScheduledShift(this.newScheduledShift)
                 });
         });
-        setTimeout(location.reload.bind(location), 100);   
+        setTimeout(location.reload.bind(location), 500);   
 }
 
 }
